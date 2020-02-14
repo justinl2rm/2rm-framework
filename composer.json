@@ -1,6 +1,6 @@
 {
   "name": "2rm/2rm-framework",
-  "minimum-stability": "dev-master",
+  "minimum-stability": "dev",
   "require": {
     "bolden/htmlcache": "1.0.15",
     "craftcms/cms": "3.3.17",
