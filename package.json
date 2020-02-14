@@ -1,6 +1,5 @@
 {
   "name": "2rm-framework",
-  "private": true,
   "devDependencies": {
     "bootstrap": "^4.4.1",
     "grunt": "^1.0.4",
