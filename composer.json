@@ -3,7 +3,7 @@
   "minimum-stability": "dev",
   "type":"composer-plugin",
   "require": {
-    "bolden/htmlcache": "1.0.15",
+   "composer-plugin-api": "^1.0",
     "craftcms/cms": "3.3.17",
     "craftcms/contact-form": "2.2.5",
     "craftcms/contact-form-honeypot": "1.0.2",
