@@ -1,5 +1,5 @@
 {
-  "name": "2rm-framework",
+  "name": "2rm/2rm-framework",
   "require": {
     "bolden/htmlcache": "1.0.15",
     "craftcms/cms": "3.3.17",
