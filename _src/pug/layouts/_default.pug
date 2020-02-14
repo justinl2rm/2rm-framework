@@ -1,0 +1,101 @@
+include /config/_config
+
+//- PAGE VARIABLES
+//- ---------------------------------|
+block variables
+
+//- MIXINS
+//- ---------------------------------|
+include /mixins/_mixins
+
+block preprocessor
+
+
+doctype html
+html(lang= pageLang || siteLang)
+	head
+		// ==== THIS FILE IS AUTO-GENERATED, DO NOT EDIT DIRECTLY ====
+		meta(charset='utf-8')
+		meta(http-equiv='X-UA-Compatible' content='IE=Edge')
+		meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
+		title= pageTitle
+		link(href='/resources/css/production.css' rel='stylesheet')
+		meta(name='robots' content='noindex, nofollow')
+		script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
+		link(rel="stylesheet", href="https://use.typekit.net/foc7lza.css")
+		script(src='/resources/js/production.min.js')
+
+
+		//- PAGE SPECIFIC <HEAD>
+		//- -------------------------|
+		block head
+
+
+
+		//- META TAGS
+		//- -------------------------|
+		if siteMeta
+			-
+				var isInterior = true
+
+				var metaAdv = {
+					'description': pageDesc || siteDesc,
+					'subject': siteSubject,
+					'url': siteUrl,
+					'rating': siteRating
+				}
+				var metaData = {
+					'fb:app_id': siteFacebookID,
+					'og:type': 'website',
+					'og:site_name': siteName,
+					'og:title': ogTitle || siteName,
+					'og:description': ogDesc || siteDesc,
+					'og:url': pageUrl || siteUrl,
+					'og:locale': (pageLang || siteLang) + '_' + siteLocale,
+					'og:image': pageImage || siteImage,
+					'twitter:card': 'summary',
+					'twitter:site': siteTwitter,
+					'twitter:url': pageUrl || siteUrl,
+					'twitter:title': ogTitle || siteName,
+					'twitter:description': ogDesc || siteDesc,
+					'twitter:image': pageImage || siteImage
+				}
+				var metaProp = {
+					'name': ogTitle || siteName,
+					'description': ogDesc|| siteDesc,
+					'image': pageImage || siteImage
+				}
+			each content, name in metaAdv
+				if (content && name)
+					meta(name= name content= content)
+			each content, property in metaData
+				if (content && property)
+					meta(property= property content= content)
+			each content, itemprop in metaProp
+				if (content && itemprop)
+					meta(itemprop= itemprop content= content)
+
+	body#body&attributes(bodyAttrs)
+
+
+		include ../includes/_header
+		//- <MAIN#CONTENT> BLOCK
+		//- -------------------------|
+		block content
+
+		include ../includes/_footer
+
+
+
+
+
+
+
+
+
+		//- PAGE SPECIFIC FOOT
+		//- -------------------------|
+		block foot
+
+
+

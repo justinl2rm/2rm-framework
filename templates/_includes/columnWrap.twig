@@ -1,0 +1,4 @@
+<div class="index-{{ block }}-{{ loop.index }} col-12 col-md-{{ entry.columnWidth }} {% if entry.columnOffset | length %} offset-md-{{ entry.columnOffset }}{% endif %}">
+	{% block content %}
+	{% endblock %}
+</div>

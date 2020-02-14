@@ -1,0 +1,10 @@
+
+{% extends "_includes/columnWrap" %}
+{% block content %}
+
+	<div class="form-check">
+	  <input class="form-check-input" id="{{ item.fieldName|lower|replace(' ', '-') }}" name="message[{{ item.fieldName }}]" type="checkbox" value="" >
+		{% include '_includes/field-label' with {item:item} %}
+	</div>
+{% endblock %}
+

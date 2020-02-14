@@ -1,0 +1,49 @@
+{
+	"buttons": ["html","format","bold","italic","lists","link","image","file","horizontalrule"],
+	"plugins": ["alignment","properties"],
+	"formatting" : ["h1","h2","h3","h4","p"],
+	"linkNewTab": true,
+	"formattingAdd": {
+		"button-add": {
+			"title": "Button",
+			"api": "module.block.format",
+			"args": {
+				"tag" : "p",
+				"class" : "button"
+			}
+		},
+		"highlight-add": {
+			"title": "Highlight",
+			"api": "module.block.format",
+			"args": {
+				"tag" : "span",
+				"class" : "highlight"
+			}
+		},
+
+		"stat-add": {
+			"title": "Statistic",
+			"api": "module.block.format",
+			"args": {
+				"tag" : "span",
+				"class" : "stat"
+			}
+		},
+		"arrow-link-add": {
+			"title": "Arrow Link",
+			"api": "module.block.format",
+			"args": {
+				"tag" : "span",
+				"class" : "arrow-link"
+			}
+		},
+		"emphasis-add": {
+			"title": "Emphasis Style",
+			"api": "module.block.format",
+			"args": {
+				"tag" : "span",
+				"class" : "emphasis"
+			}
+		}
+	}
+	}

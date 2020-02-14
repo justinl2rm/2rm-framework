@@ -1,0 +1,12 @@
+
+{% extends "_includes/columnWrap" %}
+{% block content %}
+{% include '_includes/field-label' with {item:item} %}
+	<select name="message[{{ item.fieldName }}]" id="{{ item.fieldName|lower|replace(' ', '-') }}" {% if item.required %}required{% endif %}>
+		<option value="" default>-- Select --</option>
+		{% for row in item.fieldValues %}
+			<option value="{{ row.value }}">{{ row.value }}</option>
+		{% endfor %}
+	</select>
+
+{% endblock %}

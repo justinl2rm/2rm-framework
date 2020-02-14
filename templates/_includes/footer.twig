@@ -1,0 +1,18 @@
+<footer>
+	<div class="container">
+		<div class="row">
+			<div class="col-12 col-sm-8">
+				<ul class="list-inline">
+					<li>&copy;{{ 'now'|date('Y') }} {{ siteName }}</li>
+					{% if siteControls.primaryAddress|length %}<li>{{ siteControls.primaryAddress }}</li>{% endif %}
+					{% if siteControls.primaryTelephone|length %}<li>{{ siteControls.primaryTelephone }}</li>{% endif %}
+				</ul>
+			</div>
+			<div class="col-12 col-sm-4 text-right">
+				<ul class="list-inline mt-4">
+		            {% include '_includes/social' with {class:'list-inline-item'} %}
+		          </ul>
+			</div>
+		</div>
+	</div>
+</footer>

@@ -1,0 +1,14 @@
+
+{% extends "_includes/columnWrap" %}
+{% block content %}
+{% include '_includes/field-label' with {item:item} %}
+<div class="radio-group">
+	{% for row in item.fieldValues %}
+	<div class="form-radio">
+		<input type="radio" class="form-radio-input"  name="{{ item.fieldName }}" value="{{ row.value }}">
+		<span class="radio-label">{{ row.value }}</span>
+	</div>
+	{% endfor %}
+</div>
+{% endblock %}
+

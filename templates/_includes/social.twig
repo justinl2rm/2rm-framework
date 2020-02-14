@@ -1,0 +1,7 @@
+
+{% set socialList = seomatic.site.sameAsLinks %}
+
+{% for social in socialList %}
+{% if social["url"] | length %}<li class="{{ class }} social-links {{ social["handle"] }}"><a href="{{ social["url"] }}" target="_blank"><i class="fab fa-{{ social["handle"] }}"></i></a></li>{% endif %}
+{% endfor %}
+

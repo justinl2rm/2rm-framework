@@ -1,0 +1,5 @@
+{% extends "_includes/columnWrap" %}
+{% block content %}
+{% include '_includes/field-label' with {item:item} %}
+	<input  type="{{ item.textFields }}" id="{{ item.fieldName }}" name="{{ item.fieldName }}"  placeholder="">
+{% endblock %}

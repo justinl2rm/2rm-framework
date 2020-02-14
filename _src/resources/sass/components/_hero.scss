@@ -1,0 +1,142 @@
+.builder-bannerCallout {
+    background-color: white !important;
+    .hero {
+        max-height:800px;
+        height:auto;
+    }
+
+    h2 {
+        font-size: 4.5rem;
+    }
+.bg {
+
+    &-white {
+        background-color:rgba( #fff,.9);
+    }
+
+    &-dark-blue {
+        background-color:rgba( $secondary,.9);
+    }
+    &-light-gray {
+        background-color:rgba(#eee,.9);
+    }
+
+    &-dark-gray {
+        background-color:rgba( #595959,.9);
+    }
+
+    &-light-blue {
+        background-color:rgba( $primary,.9);
+
+
+    }
+
+    &-yellow {
+        background-color:rgba($primary,.9);
+
+    }
+}
+
+    .bg-cover {
+
+        &.offset-md-1  {
+            padding:4em 0em 4em 4em;
+        }
+
+        padding:4em 4em 4em 0;
+
+        .hero-content {
+            height:100%;
+            width:100%;
+            display: flex;
+            align-items:center;
+        }
+    }
+}
+
+
+.hero {
+    .row {
+        width:100%;
+    }
+    @include media-breakpoint-down(sm){
+        height:auto !important;
+        background-position: left;
+        padding:3em !important;
+    }
+    h1 {
+        text-transform: uppercase;
+        @include media-breakpoint-up(md){
+       font-size: 1.75rem;
+    }
+
+    }
+
+        h1,h2,h3,h4,h5{
+            line-height: 1.1
+        }
+        h1,h2,h3,h4,p {
+            color:$white;
+        }
+
+    &.header-dark {
+        h1,h2,h3,h4,h5,h6 {
+            color:white;
+        }
+        p,.button {
+            color:white;
+        }
+
+        .button {
+            border-color:white;
+        }
+        .overlay {
+            background: rgba(0,0,0,.4);
+        }
+    }
+    &.header-light {
+
+@include transition(.3s all);
+
+
+        .overlay {
+            background: rgba($white,.25);
+        }
+        h1,h2,h3,h4 {
+            color:$secondary;
+        }
+        p {
+            color:$white;
+        }
+    }
+
+
+    .overlay {
+
+    }
+
+    &.header-notheme {
+        .overlay {
+            display: none;
+        }
+    }
+
+    position: relative;
+    overflow: hidden;
+    padding: 4rem 2rem;
+    background-size: cover;
+    background-position: center;
+    .container {
+        height:100%;
+    }
+
+
+    .content * {
+        color: $white;
+    }
+
+}
+
+
+
+

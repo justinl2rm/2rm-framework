@@ -1,0 +1,7 @@
+
+
+{% extends "_includes/columnWrap" %}
+{% block content %}
+	{% include '_includes/field-label' with {item:item} %}
+    <input {% if item.required %}required{% endif %} id="{{ item.fieldName|lower|replace(' ', '-') }}" type="date" name="message[{{ item.fieldName }}]" value="" min="{{ now|date('m/d/Y}}">
+{% endblock %}

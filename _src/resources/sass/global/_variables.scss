@@ -1,0 +1,123 @@
+// Variables
+// ------------------------
+
+// Enable debugging features
+$debug: false;
+
+// Colors
+// ------------------------
+$primary: #333333;
+$secondary: black;
+$red: #e8112d;
+$colors: (
+    primary: (
+        light: tint($primary, 20%),
+        normal: $primary,
+        dark: shade($primary, 20%)
+    ),
+    secondary: (
+        light: tint($secondary, 20%),
+        normal: $secondary,
+        dark: shade($secondary, 20%)
+    ),
+    gray: (
+        ultralight: #efefef,
+        light: #cccccc,
+        normal: #aaaaaa,
+        dark: #888888,
+        ultradark: #555555
+    ),
+    other: (
+        white: #fcfcfc,
+        black: black,
+        success: #92F0A1,
+        warn: #F0E591,
+        alert: #FF676B
+    )
+);
+
+// Primary
+$primary-light: map-get(map-get($colors, primary), light);
+$primary-dark: map-get(map-get($colors, primary), dark);
+
+// Secondary
+$secondary-light: map-get(map-get($colors, secondary), light);
+$secondary-dark: map-get(map-get($colors, secondary), dark);
+
+// Grays
+$gray-ultralight: map-get(map-get($colors, gray), ultralight);
+$gray-light: map-get(map-get($colors, gray), light);
+$gray: map-get(map-get($colors, gray), normal);
+$gray-dark: map-get(map-get($colors, gray), dark);
+$gray-ultradark: map-get(map-get($colors, gray), ultradark);
+
+// Misc
+$white: map-get(map-get($colors, other), white);
+$black: map-get(map-get($colors, other), black);
+$success: map-get(map-get($colors, other), success);
+$warn: map-get(map-get($colors, other), warn);
+$alert: map-get(map-get($colors, other), alert);
+
+
+// FONT STACKS
+
+$fa-font-path: "../fonts/fontawesome";
+
+$heading: 'Open Sans', sans-serif;
+$body: 'Open Sans', sans-serif;
+$serif: 'Cormorant Garamond', serif;
+
+
+// Cubic-bezier timing functions
+// Credit: http://github.com/jaukia/easie
+// ------------------------
+
+// EASE IN
+$ease-in-quad: cubic-bezier(0.550,  0.085, 0.680, 0.530);
+$ease-in-cubic: cubic-bezier(0.550,  0.055, 0.675, 0.190);
+$ease-in-quart: cubic-bezier(0.895,  0.030, 0.685, 0.220);
+$ease-in-quint: cubic-bezier(0.755,  0.050, 0.855, 0.060);
+$ease-in-sine: cubic-bezier(0.470,  0.000, 0.745, 0.715);
+$ease-in-expo: cubic-bezier(0.950,  0.050, 0.795, 0.035);
+$ease-in-circ: cubic-bezier(0.600,  0.040, 0.980, 0.335);
+$ease-in-back: cubic-bezier(0.600, -0.280, 0.735, 0.045);
+
+// EASE OUT
+$ease-out-quad: cubic-bezier(0.250,  0.460, 0.450, 0.940);
+$ease-out-cubic: cubic-bezier(0.215,  0.610, 0.355, 1.000);
+$ease-out-quart: cubic-bezier(0.165,  0.840, 0.440, 1.000);
+$ease-out-quint: cubic-bezier(0.230,  1.000, 0.320, 1.000);
+$ease-out-sine: cubic-bezier(0.390,  0.575, 0.565, 1.000);
+$ease-out-expo: cubic-bezier(0.190,  1.000, 0.220, 1.000);
+$ease-out-circ: cubic-bezier(0.075,  0.820, 0.165, 1.000);
+$ease-out-back: cubic-bezier(0.175,  0.885, 0.320, 1.275);
+
+// EASE IN OUT
+$ease-in-out-quad: cubic-bezier(0.455,  0.030, 0.515, 0.955);
+$ease-in-out-cubic: cubic-bezier(0.645,  0.045, 0.355, 1.000);
+$ease-in-out-quart: cubic-bezier(0.770,  0.000, 0.175, 1.000);
+$ease-in-out-quint: cubic-bezier(0.860,  0.000, 0.070, 1.000);
+$ease-in-out-sine: cubic-bezier(0.445,  0.050, 0.550, 0.950);
+$ease-in-out-expo: cubic-bezier(1.000,  0.000, 0.000, 1.000);
+$ease-in-out-circ: cubic-bezier(0.785,  0.135, 0.150, 0.860);
+$ease-in-out-back: cubic-bezier(0.680, -0.550, 0.265, 1.550);
+
+
+// Misc
+// ------------------------
+$chevron-left: "&#x3008;";
+$chevron-right: "&#x3009;";
+$close: "&#x2715;";
+$quote-left: "\201c";
+$quote-right: "\201d";
+
+// Shadows
+
+$drop-shadow-hover: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+$drop-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+$drop-shadow2: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+$drop-shadow3: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+$drop-shadow4: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+$drop-shadow5: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+
+

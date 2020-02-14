@@ -1,0 +1,24 @@
+{% extends "_includes/body-block-open" %}
+{% block content %}
+
+    <div class="container">
+        <div class="row  {{ block.contentVerticalAlignment }}">
+
+            {% set items = block.children.all() %}
+
+            {% for item in items %}
+                <div class="module-container index-{{ block }}-{{ loop.index }} col-12 col-md-{{ item.columnWidth }} {% if item.columnOffset | length %} offset-md-{{ item.columnOffset }}{% endif %}">
+
+                    {% set modules = item.children.all() %}
+
+                    {% for module in modules %}
+
+                        {% include '_includes/' ~ module.type.handle with {module: module} %}
+
+                    {% endfor %}
+
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

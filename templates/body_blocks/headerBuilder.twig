@@ -1,0 +1,21 @@
+
+
+	<div class="builder-section hero" {% if block.sectionId | length %}id="{{ block.sectionId }}"{% endif %} style="background-image:url('{% if block.backgroundImage | length %}{{ block.backgroundImage.one.url('fullWidth') }}'){% endif %}{% if block.heroHeight | length %};height:{{ block.heroHeight }}px{% endif %}; {% if block.fixed %}background-attachment:fixed{% endif %}">
+		<div class="container">
+			<div class="row ">
+
+				{% set items = block.children.all %}
+
+				{% for item in items %}
+	            <div class="index-{{ block }}-{{ loop.index }} col-12 col-md-{{ item.columnWidth }} {% if item.columnOffset | length %} offset-md-{{ item.columnOffset }}{% endif %}">
+                    <div class="module {{ item.backgroundColor ? item.backgroundColor : 'no-bg' }}">
+                         {{ item.richText }}
+
+                    </div>
+	            </div>
+	        {% endfor %}
+			</div>
+		</div>
+
+	</div>
+	`

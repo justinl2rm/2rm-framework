@@ -1,0 +1,67 @@
+{#
+# General layout template.
+# ---------------
+#
+#}
+
+{% set devMode = craft.app.config.general.devMode %}
+
+{% set env = craft.app.config.env %}
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js"> <!--<![endif]-->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+    {% hook 'seomaticRender' %}
+
+    <link rel="icon" href="{% if siteControls.favicon | length %}{{ siteControls.favicon.one.url( 'favicon' ) }}{% endif %}" type="image/png">
+
+    <link rel="stylesheet" href="/resources/css/production.css{% if devMode %}?v={{ now.timestamp }}{% endif %}">
+
+
+
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" href="/resources/css/fallback.css">
+    <link rel="stylesheet" href="/resources/css/ie8.css">
+    <![endif]-->
+
+    {% if devMode %}
+    <meta NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    {% endif %}
+
+
+    </head>
+
+    <body class="{{ craft.app.request.getSegment(1) ?: 'home' }}">
+            {% include '_includes/main-nav' %}
+            {% block content %}
+            {% endblock %}
+            {% include '_includes/footer' %}
+        </div>
+        {% include '_includes/mobile-nav' %}
+
+
+        <script src="/resources/js/production.min.js"></script>
+
+        {# Enable BrowserSync on Local Environment #}
+
+        {% if env == 'dev' %}
+        <script id="__bs_script__">//<![CDATA[
+        document.write("<script async src='http://HOST:3000/browser-sync/browser-sync-client.js?v=2.26.3'><\/script>".replace("HOST", location.hostname));
+    //]]></script>
+        {% endif %}
+
+    </body>
+</html>

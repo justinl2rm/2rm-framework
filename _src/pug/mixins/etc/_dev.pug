@@ -1,0 +1,19 @@
+//- -----------------------------------------------------------------|
+//- DEV MIXINS
+//- -----------------------------------------------------------------|
+//- Contains the template for outputting comments in our partials and components.
+
+//-  DEV HEAD MIXIN
+//- -----------------------------------------------------------------|
+mixin devHead(name)
+	= '\n'
+	= '\n'
+	| <!-- BEGIN: #{name.toUpperCase()} -->
+
+
+//-  DEV FOOT MIXIN
+//- -----------------------------------------------------------------|
+mixin devFoot(name)
+	= '\n'
+	| <!-- END: #{name.toUpperCase()} -->
+	= '\n'

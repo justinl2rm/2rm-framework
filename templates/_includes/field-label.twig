@@ -1,0 +1,10 @@
+{% if item.fieldName | length %}
+{% set fieldName = item.fieldName %}
+{% else %}
+{% set fieldName = loop.index %}
+{% endif %}
+
+<label for="{{ fieldName }}">{{ item.placeholder }}{% if item.required %}{% else %} (Optional){% endif %}</label>
+{% if item.subhead | length %}
+<p class="small"><em>{{ item.subhead }}</em></p>
+{% endif %}

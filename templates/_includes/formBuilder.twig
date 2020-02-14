@@ -1,0 +1,44 @@
+	{% extends "_includes/moduleOpen" %}
+	{% block content %}
+	<div class="module-content">
+		<div class="row">
+			<div class="col-12">
+
+				{% macro errorList(errors) %}
+				{% if errors %}
+				<ul class="errors col-12">
+					{% for error in errors %}
+					<li>{{ error }}</li>
+					{% endfor %}
+				</ul>
+				{% endif %}
+				{% endmacro %}
+
+				{% from _self import errorList %}
+
+
+				<form method="post" class="main-form row" id="my-form" action="POST" accept-charset="UTF-8">
+					{{ csrfInput() }}
+					<input type="hidden" name="action" value="contactForm/sendMessage">
+
+					<input id="subject" type="hidden" name="subject" value="{{ module.formEmailSubject }}">
+
+					<input id="favoriteKitten" type="text" style="position:absolute; left:-9999px" name="favoriteKitten">
+
+					{% set items = module.children.all %}
+
+					{% for item in items %}
+					{% include "_includes/neo/" ~ item.type %}
+					{% endfor %}
+
+				</form>
+			</div>
+			<div class="col-12">
+				<div id="thankYou">
+					{{ module.thankYou }}
+				</div>
+			</div>
+			</div>
+		</div>
+
+	{% endblock %}

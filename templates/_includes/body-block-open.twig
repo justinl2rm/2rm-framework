@@ -1,0 +1,4 @@
+<div {% if block.sectionId | length %}id="{{ block.sectionId }}"{% endif %} class="builder-section builder-{{ block.type }} section-padding-top-{{ block.sectionPaddingTopOptions ? block.sectionPaddingTopOptions : 'default' }} section-padding-bottom-{{ block.sectionPaddingBottomOptions ? block.sectionPaddingBottomOptions : 'default' }} {{ block.backgroundColor }}">
+	{% block content %}
+	{% endblock %}
+</div>

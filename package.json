@@ -1,0 +1,25 @@
+{
+  "private": true,
+  "devDependencies": {
+    "bootstrap": "^4.4.1",
+    "grunt": "^1.0.4",
+    "grunt-browser-sync": "^2.2.0",
+    "grunt-contrib-concat": "*",
+    "grunt-contrib-imagemin": "^3.1.0",
+    "grunt-contrib-pug": "^2.0.0",
+    "grunt-contrib-uglify": "^3.4.0",
+    "grunt-contrib-uglify-es": "^3.3.0",
+    "grunt-contrib-watch": "^1.1.0",
+    "grunt-focus": "^1.0.0",
+    "grunt-sass": "^3.1.0",
+    "jquery": "^3.4.1",
+    "node-sass": "^4.13.1",
+    "popper.js": "^1.16.0"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.12.1",
+    "@hapi/hoek": "^9.0.3",
+    "@popperjs/core": "^2.0.6",
+    "moment": "^2.24.0"
+  }
+}

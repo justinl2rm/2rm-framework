@@ -1,0 +1,31 @@
+
+// 3rd-party/vendors:
+@import "../../../node_modules/bootstrap/scss/bootstrap-reboot";
+@import "../../../node_modules/bootstrap/scss/bootstrap";
+@import "../../../node_modules/bootstrap/scss/bootstrap-grid";
+// @import "../../node_modules/aos/src/sass/aos";
+@import "vendor/flexslider";
+
+
+
+// globals
+@import "global/mixins";
+@import "global/variables";
+@import "global/fontstacks";
+@import "global/typography";
+@import "global/sections";
+@import "global/module";
+
+// Project Specifics
+@import "components/forms";
+@import "components/hero";
+@import "components/main";
+@import "components/navigation";
+@import "components/footer";
+
+
+
+
+
+
+

@@ -1,0 +1,11 @@
+{% extends "_includes/body-block-open" %}
+{% block content %}
+    <div class="container main-content">
+        <div class="row  ">
+        {% set items = block.children.all() %}
+        {% for item in items %}
+            {% include '_includes/columnItem' with {entry:item} %}
+        {% endfor %}
+        </div>
+    </div>
+{% endblock %}

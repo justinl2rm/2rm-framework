@@ -1,0 +1,5 @@
+{% set blocks = entry.neoContentBuilder.level(1).all %}
+
+{% for block in blocks %}
+    {% include 'body_blocks/' ~ block.type.handle with {block: block} %}
+{% endfor %}

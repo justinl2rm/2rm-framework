@@ -1,0 +1,5 @@
+{% extends "_includes/columnWrap" %}
+{% block content %}
+{% include '_includes/field-label' with {item:item} %}
+	<textarea {% if item.required %}required{% endif %} rows="10" cols="40" id="message" name="message[body]">{% if message is defined %}{{ message.message }}{% endif %}</textarea>
+{% endblock %}

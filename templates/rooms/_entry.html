@@ -1,0 +1,123 @@
+{% extends "_layout" %}
+
+{% block content %}
+
+<div class="builder-section hero" >
+
+
+		<div class="row no-gutters d-flex align-items-center">
+
+			<div class="d-flex align-items-center col-12 col-md-6 col-order-1">
+				<div class="hero-content">
+					<h1 class="title">{{ entry.title }}</h1>
+					<div class="row">
+						<div class="col-12 col-md-10">
+							{% include '_includes/room-details-entry' with {room:entry} %}
+						</div>
+					</div>
+					<h5><a href="{{ siteUrl }}reservation-request?space={{ entry.slug }}" class="button">Request a reservation</a></h5>
+				</div>
+			</div>
+
+			<div class="col-12 col-md-6 col-order-12 hero-background-container">
+
+				{% set backgroundImage = entry.roomGallery.first.url('halfWidth') %}
+				<div class="hero-background-image gallery-header" style="background-image:url('{{ backgroundImage }}')">
+
+				</div>
+
+				{% if entry.roomGallery | length > 1 %}
+
+				<div class="row no-gutters gallery-thumbs">
+					{% for image in entry.roomGallery %}
+					{% if loop.length < 4 %}
+					{% set width = 'col' %}
+					{% else %}
+					{% set width = 'col-3' %}
+					{% endif %}
+					<div class="{{ width }}">
+						<div class="gallery-image {% if loop.first %}active{% endif %}" data-src="{{ image.url('halfWidth') }}">
+							<img src="{{ image.url('thumbnail') }}" alt="{{ entry.title }}">
+						</div>
+					</div>
+					{% endfor %}
+				</div>
+				{% endif %}
+
+			</div>
+
+
+		</div>
+
+
+</div>
+
+<div class="builder-section other-details">
+	<section>
+		<div class="container">
+			<div class="row">
+				<div class="col-12 mb-4">
+					<h5 class="bar-title">Capabilities</h5>
+				</div>
+				<div class="col-12 col-md-5">
+					<div class="row">
+						{% for capability in entry.capabilities%}
+						<div class="col-6 mb-2">
+							<img src="{{ capability.featureIcon.first.url }}" style="margin-right:1em;" width="35" alt="{{ capability.title }}"> <span class="emphasis" style="font-size:.75rem">{{ capability.title }}</span>
+							</div>
+						{% endfor %}
+					</div>
+				</div>
+				<div class="col-12 col-md-7">
+
+					{{ entry.featuredDescription }}
+
+				</div>
+			</div>
+		</div>
+	</section>
+</div>
+<div class="builder-section builder-largeLink section-padding-top-default section-padding-bottom-default">
+	    <div class="container main-content">
+        <div class="row  ">
+            <div class="col-12 text-right">
+                <div class="large-link">
+                    <a href="{{ entry.mapLink ? entry.mapLink : '/'}}" target='_blank'>
+                        <h5>Want a Shareable Location?</h5>
+                        <h4>{{ entry.ctaText ? entry.ctaText : 'Check out our interactive map'}}</h4>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+	{% set entries = craft.entries.section('rooms')
+			.relatedTo(entry.roomType)
+			.id('not ' ~ entry.id)
+			.limit(2)
+			 %}
+
+			 {% if entries|length %}
+
+<div class="builder-section section-padding-bottom-default section-padding-top-default bg-light-gray">
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<h5>Similar Spaces</h5>
+			</div>
+		</div>
+	</div>
+	<div class="container-fluid">
+		<div class="row">
+
+			{% for room in entries %}
+					<div class="col-12 col-md-6 {% if loop.length == 1 %}offset-md-3{% endif %}">
+						{% include '_includes/roomPreview.twig' with {room:room,module:room} %}
+					</div>
+			{% endfor %}
+		</div>
+	</div>
+</div>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,6 @@
+
+{% extends "_includes/columnWrap" %}
+{% block content %}
+{% include '_includes/field-label' with {item:item} %}
+    <input {% if item.required %}required{% endif %} id="phone" type="text" name="message[Phone]" value="">
+{% endblock %}

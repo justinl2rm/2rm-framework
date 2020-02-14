@@ -1,0 +1,192 @@
+.builder-section {
+	&.section-padding-top {
+		&-none {
+			padding-top:0;
+		}
+
+		&-xs {
+			padding-top:1em;
+		}
+
+		&-sm {
+			padding-top:2em;
+		}
+
+		&-default {
+			padding-top:3em;
+		}
+
+		&-md {
+			padding-top:3.5em;
+		}
+
+		&-lg {
+			padding-top: 4em;
+		}
+
+		&-xl {
+			padding-top: 5em;
+		}
+	}
+	&.section-padding-bottom {
+		&-none {
+			padding-bottom:0;
+		}
+
+		&-xs {
+			padding-bottom:1em;
+		}
+
+		&-sm {
+			padding-bottom:2em;
+		}
+
+		&-default {
+			padding-bottom:3em;
+		}
+
+		&-md {
+			padding-bottom:3.5em;
+		}
+
+		&-lg {
+			padding-bottom: 4em;
+		}
+
+		&-xl {
+			padding-bottom: 5em;
+		}
+	}
+}
+
+
+
+
+.bg {
+
+	&-white {
+		background-color: #fff;
+	}
+
+	&-dark-blue {
+		background-color: $secondary;
+		h1,h2,h3,h4,h5,h6,p,li,a:not(.button),span,strong {
+			color:white;
+		}
+
+
+		.highlight {
+			&,& * {
+			color:$primary;
+			&:after {
+				background-color: white;
+			}
+			}
+		}
+	}
+	&-light-gray {
+		background-color:#eee;
+	}
+
+	&-dark-gray {
+		background-color: #595959;
+	}
+
+	&-dark-dark-blue {
+		background-color: $primary;
+
+		* {
+			color:white;
+		}
+
+		.highlight {
+			color:$primary;
+		}
+
+		.main-form {
+			[class*="col"]{
+				margin-bottom: 1em;
+			}
+			input,textarea {
+				border-color:white;
+				@include placeholder(white);
+			}
+		}
+	}
+
+	&-light-blue {
+		background-color: $primary;
+
+		h1,h2,h3,h4,h5,h6 {
+			color:white;
+		}
+
+		p,li,strong {
+				color:white;
+
+			}
+
+		a:not(.button) {
+			color:white;
+		}
+
+		a:not(.button):hover {
+			color:white;
+		}
+
+
+		.highlight {
+			&:after {
+				background-color: white;
+			}
+		}
+
+		.content,.main-content,.module-content {
+			.arrow-link {
+				&:after {
+					color:inherit;
+				}
+
+				&:hover {
+					color:white;
+				}
+			}
+
+		}
+	}
+
+	&-yellow {
+		background-color: $primary;
+
+		.color-overlay-front {
+			opacity: .7;
+		}
+	}
+}
+
+
+
+.bg-cover {
+	background-position: center ;
+	background-size: cover;
+}
+
+.color-overlay {
+	position: absolute;
+	z-index: 1;
+	width:100%;
+	height:100%;
+	opacity:.7;
+	left:0;
+	top:0;
+
+	&-front {
+		opacity:.5;
+		z-index: 2;
+	}
+
+	&-behind {
+		background-blend-mode:hard-light;
+		z-index: 1;
+	}
+}

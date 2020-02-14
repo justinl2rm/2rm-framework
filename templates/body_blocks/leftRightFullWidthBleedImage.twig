@@ -1,0 +1,22 @@
+{% extends "_includes/body-block-open" %}
+{% block content %}
+	{% set position = block.bleedImagePosition %}
+	{% if position == 'full' %}
+			{% for image in block.bleedImage %}
+
+				<div class="hero cover" style="{% if block.fixed %}background-attachment:fixed;{% endif %}height:{{ block.heroHeight }}px; background-image:url('{{ image.getUrl('fullWidth') }}')">
+				</div>
+			{% endfor %}
+
+	{% else %}
+			{% for image in block.bleedImage %}
+
+	<div style="{% if block.fixed %}background-attachment:fixed;{% endif %}height:{{ block.heroHeight }}px;background-image:url('{{ image.getUrl('fullWidth') }}')" class="hero col-12 col-sm-8 padding-bottom {% if position ==  'right' %} offset-sm-4{% else %}{% endif %}">
+			{% endfor %}
+
+
+	</div>
+	{% endif %}
+{% endblock %}
+
+

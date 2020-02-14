@@ -1,0 +1,199 @@
+<script>
+<<<<<<< Updated upstream
+
+    var address = '{{ siteControls.primaryAddress }}';
+
+
+
+    var locations = [
+        ['{{ siteName }}',address]
+    ]
+
+    var styles = [{
+            "featureType": "administrative",
+            "elementType": "geometry.stroke",
+            "stylers": [{"visibility": "on"}, {"color": "#323129"}, {"weight": "0.30"}, {"saturation": "-75"}, {"lightness": "5"}, {"gamma": "1"}]
+        }, {
+            "featureType": "administrative",
+            "elementType": "labels.text.fill",
+            "stylers": [{"color": "#0096aa"}, {"saturation": "-75"}, {"lightness": "5"}]
+        }, {
+            "featureType": "administrative",
+            "elementType": "labels.text.stroke",
+            "stylers": [{"color": "#ffe146"}, {"visibility": "on"}, {"weight": "6"}, {"saturation": "-28"}, {"lightness": "0"}]
+        }, {
+            "featureType": "administrative",
+            "elementType": "labels.icon",
+            "stylers": [{"visibility": "on"}, {"color": "#e6007e"}, {"weight": "1"}]
+        }, {
+            "featureType": "landscape",
+            "elementType": "all",
+            "stylers": [{"color": "#feec30"}, {"saturation": "-28"}, {"lightness": "0"}]
+        }, {"featureType": "poi", "elementType": "geometry", "stylers": [{"hue": "#ffe900"}]}, {
+            "featureType": "poi",
+            "elementType": "labels",
+            "stylers": [{"visibility": "simplified"}]
+        }, {
+            "featureType": "poi",
+            "elementType": "labels.text",
+            "stylers": [{"visibility": "on"}, {"weight": "2"}]
+        }, {
+            "featureType": "poi",
+            "elementType": "labels.text.fill",
+            "stylers": [{"color": "#333937"}, {"weight": "2"}, {"visibility": "on"}]
+        }, {
+            "featureType": "poi",
+            "elementType": "labels.text.stroke",
+            "stylers": [{"color": "#ffe146"}]
+        }, {
+            "featureType": "poi",
+            "elementType": "labels.icon",
+            "stylers": [{"visibility": "on"}, {"hue": "#003fff"}]
+        }, {
+            "featureType": "road",
+            "elementType": "all",
+            "stylers": [{"color": "#333937"}, {"visibility": "simplified"}, {"saturation": "-75"}, {"lightness": "5"}, {"gamma": "1"}]
+        }, {
+            "featureType": "road",
+            "elementType": "labels.text",
+            "stylers": [{"visibility": "on"}, {"color": "#feec30"}, {"weight": 8}, {"saturation": "-28"}, {"lightness": "0"}]
+        }, {
+            "featureType": "road",
+            "elementType": "labels.text.fill",
+            "stylers": [{"visibility": "on"}, {"color": "#333937"}, {"weight": 8}, {"lightness": "5"}, {"gamma": "1"}, {"saturation": "-75"}]
+        }, {
+            "featureType": "road",
+            "elementType": "labels.icon",
+            "stylers": [{"visibility": "off"}, {"hue": "#0061ff"}]
+        }, {
+            "featureType": "transit",
+            "elementType": "all",
+            "stylers": [{"visibility": "simplified"}, {"color": "#333937"}, {"saturation": "-75"}, {"lightness": "5"}, {"gamma": "1"}]
+        }, {
+            "featureType": "water",
+            "elementType": "geometry.fill",
+            "stylers": [{"visibility": "on"}, {"color": "#333937"}, {"saturation": "-75"}, {"lightness": "5"}, {"gamma": "1"}]
+        }, {
+            "featureType": "water",
+            "elementType": "labels.text",
+            "stylers": [{"visibility": "simplified"}, {"color": "#ffe146"}, {"saturation": "-28"}, {"lightness": "0"}]
+        }, {"featureType": "water", "elementType": "labels.icon", "stylers": [{"visibility": "off"}]}],
+        
+        geocoder = new google.maps.Geocoder();
+
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+            mapTypeId: google.maps.MapTypeId.road,
+            zoom: 13,
+            scrollwheel: false,
+            navigationControl: false,
+            mapTypeControl: false,
+            styles: styles,
+            disableDefaultUI: true
+        });
+
+
+        for (i = 0; i < locations.length; i++){
+
+            if ( i != 0 ) {
+                geocodeAddress(locations[i]);
+
+            } else {
+
+                geocodeAddress(locations[i]);
+
+            }
+        }
+
+
+        function geocodeAddress(location) {
+
+            if ( location[1] === '{{ siteControls.primaryAddress }}') {
+                geocoder.geocode( { 'address': location[1]}, function(results, status) {
+                  //alert(status);
+                    if (status == google.maps.GeocoderStatus.OK) {
+
+                          //alert(results[0].geometry.location);
+                          map.setCenter(results[0].geometry.location);
+                          createMarker(results[0].geometry.location,'resources/img/marker.png');
+                         
+                    }
+                    else
+                    {
+                      alert("some problem in geocode" + status);
+                    }
+                  }); 
+
+            } else {
+
+                geocoder.geocode( { 'address': location[1]}, function(results, status) {
+                  //alert(status);
+                    if (status == google.maps.GeocoderStatus.OK) {
+
+                          //alert(results[0].geometry.location);
+                          map.setCenter(results[0].geometry.location);
+                          createMarker(results[0].geometry.location,'resources/img/alternate-marker.png');
+                         
+                    }
+                    else
+                    {
+                      alert("some problem in geocode" + status);
+                    }
+                  });
+
+            }
+          
+        }
+
+        function createMarker(latlng,marker){
+
+            var marker = new google.maps.Marker({
+                position: latlng,
+                map: map,
+                icon: marker
+                });
+        }; 
+
+
+        google.maps.event.addDomListener(window, "resize", function () {
+            var center = map.getCenter();
+            google.maps.event.trigger(map, "resize");
+            map.setCenter(center);
+        });
+
+=======
+        	
+    var address = '{{ entry.street }} {{ entry.city }}';
+
+    var styles = [{"featureType":"landscape.man_made","elementType":"geometry.fill","stylers":[{"saturation":"0"},{"lightness":"0"},{"color":"#e6f1f1"}]},{"featureType":"landscape.natural","elementType":"geometry.fill","stylers":[{"visibility":"on"},{"color":"#aae0dc"}]},{"featureType":"poi","elementType":"geometry.fill","stylers":[{"visibility":"on"},{"hue":"#1900ff"},{"color":"#8EF1DD"}]},{"featureType":"road","elementType":"geometry","stylers":[{"lightness":100},{"visibility":"simplified"},{"color":"#1bf9c7"}]},{"featureType":"road","elementType":"labels","stylers":[{"visibility":"off"},{"saturation":"0"}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"weight":"2"},{"saturation":"2"}]},{"featureType":"road.highway","elementType":"labels","stylers":[{"visibility":"on"},{"hue":"#00ffff"},{"lightness":"-18"}]},{"featureType":"road.local","elementType":"all","stylers":[{"visibility":"simplified"},{"gamma":"0.00"},{"saturation":"-4"},{"weight":"0.96"},{"color":"#0f857b"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"on"}]},{"featureType":"transit.line","elementType":"geometry","stylers":[{"lightness":700},{"visibility":"on"},{"weight":"1"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#73D4C0"}]}],
+    geocoder = new google.maps.Geocoder();
+     var map = new google.maps.Map(document.getElementById('map'), { 
+          mapTypeId: google.maps.MapTypeId.road,
+          zoom: 13,
+          scrollwheel: false,
+          navigationControl: false,
+          mapTypeControl: false,
+          styles: styles
+     });
+
+     geocoder.geocode({
+        'address': address
+     },
+
+     function(results, status) {
+        if(status == google.maps.GeocoderStatus.OK) {
+           new google.maps.Marker({
+              position: results[0].geometry.location,
+              map: map
+           });
+           map.setCenter(results[0].geometry.location);
+        }
+     });
+     google.maps.event.addDomListener(window, "resize", function() {
+       var center = map.getCenter();
+       google.maps.event.trigger(map, "resize");
+       map.setCenter(center); 
+      });
+>>>>>>> Stashed changes
+
+</script>
