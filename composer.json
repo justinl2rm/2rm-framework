@@ -1,7 +1,7 @@
 {
   "name": "2rm/2rm-framework",
   "minimum-stability": "dev",
-  "type":"project",
+  "type":"composer",
   "require": {
    "composer-plugin-api": "^1.0",
     "craftcms/cms": "3.3.17",
