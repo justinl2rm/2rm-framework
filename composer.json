@@ -1,6 +1,7 @@
 {
   "name": "2rm/2rm-framework",
   "minimum-stability": "dev",
+  "type":"composer-plugin",
   "require": {
     "bolden/htmlcache": "1.0.15",
     "craftcms/cms": "3.3.17",
