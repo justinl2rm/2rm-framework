@@ -2,7 +2,7 @@
   "name": "2rm-framework",
   "devDependencies": {
     "bootstrap": "^4.4.1",
-    "grunt": "^1.0.4",
+    "grunt": "^1.5.2",
     "grunt-browser-sync": "^2.2.0",
     "grunt-contrib-concat": "*",
     "grunt-contrib-imagemin": "^3.1.0",
